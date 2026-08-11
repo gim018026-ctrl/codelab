@@ -1,0 +1,107 @@
+/* ============ ABOUT: step detail modal ============ */
+
+.step-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.step-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+}
+
+.step-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.55);
+}
+
+.step-modal__panel {
+  position: relative;
+  width: 440px;
+  max-width: calc(100vw - 40px);
+  background: #fff;
+  border-radius: 24px;
+  padding: 40px 36px;
+  box-shadow: 0 30px 70px rgba(17, 24, 39, 0.35);
+  transform: translateY(10px) scale(0.97);
+  transition: transform 0.2s ease;
+}
+
+.step-modal.is-open .step-modal__panel {
+  transform: translateY(0) scale(1);
+}
+
+.step-modal__close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-faint);
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.step-modal__close:hover {
+  background: var(--color-bg-soft);
+  color: var(--color-ink);
+}
+
+.step-modal__icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: #F1EEFE;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.step-modal__eyebrow {
+  display: block;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.step-modal__title {
+  font-size: 26px;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin-bottom: 20px;
+}
+
+.step-modal__list li {
+  position: relative;
+  font-size: 14px;
+  color: var(--color-ink-soft);
+  line-height: 1.6;
+  padding-left: 20px;
+  margin-bottom: 12px;
+}
+
+.step-modal__list li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-primary);
+}

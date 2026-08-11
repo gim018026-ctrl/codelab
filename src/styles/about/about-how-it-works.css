@@ -1,0 +1,109 @@
+/* ============ ABOUT: Learn. Practice. Build. 4-step row ============ */
+
+.how-it-works {
+  padding-top: 100px;
+  padding-bottom: 90px;
+  text-align: center;
+}
+
+.how-it-works__eyebrow {
+  display: inline-block;
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  color: var(--color-primary);
+  margin-bottom: 14px;
+}
+
+.how-it-works__title {
+  font-size: 34px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--color-ink);
+  margin-bottom: 10px;
+}
+
+.how-it-works__subtitle {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin-bottom: 56px;
+}
+
+.steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 220px;
+  padding: 16px;
+  border-radius: 18px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.step:hover {
+  background: #fff;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+.step__more {
+  display: inline-block;
+  margin-top: 10px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-primary);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.step:hover .step__more {
+  opacity: 1;
+}
+
+.step__icon {
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.step__icon--blue { background: var(--color-blue-soft); color: var(--color-blue); }
+.step__icon--purple { background: #F1EEFE; color: var(--color-primary); }
+.step__icon--green { background: var(--color-green-soft); color: var(--color-green); }
+.step__icon--orange { background: var(--color-orange-soft); color: var(--color-orange); }
+
+.step h3 {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin-bottom: 8px;
+}
+
+.step h3 span {
+  color: var(--color-text-faint);
+  font-weight: 700;
+  margin-right: 4px;
+}
+
+.step p {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+}
+
+.step-arrow {
+  flex: none;
+  color: var(--color-text-faint);
+  font-size: 20px;
+  margin-top: 24px;
+}

@@ -1,0 +1,31 @@
+:root {
+  --color-primary: #6C5CE7;
+  --color-primary-dark: #4C3FCB;
+  --color-ink: #111827;
+  --color-ink-soft: #374151;
+  --color-text-muted: #6B7280;
+  --color-text-faint: #9CA3AF;
+  --color-border-soft: #EEF0F3;
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #F7F7FB;
+
+  --color-green: #16A34A;
+  --color-green-soft: #E9F9EF;
+  --color-blue: #2563EB;
+  --color-blue-soft: #EAF1FF;
+  --color-orange: #EA7A1C;
+  --color-orange-soft: #FFF1E4;
+  --color-red: #E23E3E;
+  --color-red-soft: #FDEAEA;
+
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-pill: 999px;
+
+  --shadow-lg: 0 20px 50px rgba(17, 24, 39, 0.16);
+
+  --header-height: 84px;
+  --gutter: 60px;
+
+  --font-base: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic", -apple-system, BlinkMacSystemFont, sans-serif;
+}

@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CODE LAB — Visual Builder</title>
+    <link rel="stylesheet" href="style.css?v=123" />
+  </head>
+  <body>
+    <!-- 앱 화면: 상단 도구 모음 + 요소 패널 + 캔버스 + 속성 패널 -->
+    <div class="app">
+      <!-- 프로젝트 이름, 실행 취소, 저장, 계정 기능을 모은 상단 도구 모음 -->
+      <header class="topbar">
+        <!--
+          빌더는 React 앱 안의 iframe으로 실행된다.
+          target="_top"은 링크를 iframe 내부가 아니라 사이트 전체 창에서 열게 한다.
+          from=builder는 홈 App에 "빌더에서 돌아왔다"고 알려 인트로를 생략하기 위한 표시이며,
+          홈이 로드되면 App.jsx가 이 쿼리 문자열을 즉시 주소에서 제거한다.
+        -->
+        <a class="brand" href="/?from=builder" target="_top" aria-label="CODE LAB 홈으로 이동">
+          <img src="logo.png" alt="CODE LAB" />
+        </a>
+        <div class="project" title="프로젝트 이름을 더블클릭해서 수정">
+          <span id="projectName">새 프로젝트</span>
+          <button class="project-name-edit" id="editProjectName" type="button" aria-label="프로젝트 이름 변경" title="프로젝트 이름 변경">✎</button>
+        </div>
+        <div class="top-actions">
+          <button class="icon-btn" id="undoBtn" title="실행 취소">↶</button>
+          <button class="icon-btn" id="redoBtn" title="다시 실행">↷</button>
+          <button class="action" id="newPageBtn">＋ 새 프로젝트</button>
+          <button class="action" id="previewBtn">미리보기</button>
+          <button class="action" id="tutorialBtn">튜토리얼</button>
+          <span class="save-state" id="saveState">저장됨</span>
+          <button class="action primary" id="saveBtn">저장</button>
+          <button class="action" id="savedProjectsBtn">저장함</button>
+          <div class="account" id="account">
+            <button class="avatar" id="accountButton" aria-haspopup="true" aria-expanded="false">G</button>
+            <div class="account-menu" id="accountMenu">
+              <strong id="accountStatus">비회원</strong>
+              <small id="accountDescription">가입하면 모든 기능이 열려요!</small>
+              <button class="signup-link" id="signupLinkButton">회원가입하러 가기</button>
+              <button id="authToggleButton">로그인</button>
+            </div>
+          </div>
+        </div>
+      </header>
+      <!-- 편집 작업 공간은 왼쪽 카탈로그, 가운데 캔버스, 오른쪽 속성 패널로 구성됩니다. -->
+      <main class="workspace" id="workspace">
+        <!-- 요소를 검색하고 캔버스에 추가하는 왼쪽 카탈로그 -->
+        <aside class="sidebar" id="sidebar">
+          <div class="sidebar-heading">
+            <h2>화면 요소</h2>
+            <span class="status">
+              <i class="dot"></i>
+              실시간 코드 생성 중
+            </span>
+          </div>
+          <div class="search">
+            ⌕
+            <input id="search" placeholder="추가할 요소 검색..." />
+          </div>
+          <div class="live">
+            <strong>라이브 프리뷰</strong>
+            <div class="live-row">
+              <button class="active" data-device="desktop">
+                데스크탑
+              </button>
+              <button data-device="laptop">노트북</button>
+              <button data-device="tablet">태블릿</button>
+              <button data-device="mobile">핸드폰</button>
+            </div>
+          </div>
+          <button class="code-main" id="codeBtn">
+            코드 보러가기　&lt;/&gt;
+          </button>
+        </aside>
+        <!-- 드래그하거나 키보드로 왼쪽 패널 너비를 바꾸는 구분선 -->
+        <div class="sidebar-resizer" id="sidebarResizer" role="separator" aria-label="화면 요소 영역 너비 조절" aria-orientation="vertical" tabindex="0"></div>
+        <!-- 실제 페이지를 배치하고 기기별 크기를 편집하는 중앙 영역 -->
+        <section class="stage-wrap">
+          <div class="stage-meta">
+            <span>DESIGN CANVAS · 100%</span>
+          </div>
+          <div class="canvas-toolbar">
+            <div class="canvas-presets">
+              <button data-size="1920,1080">Desktop</button>
+              <button data-size="1024,768">Laptop</button>
+              <button data-size="768,1024">Tablet</button>
+              <button data-size="390,844">Mobile</button>
+            </div>
+            <div class="canvas-dimensions">
+              <label>
+                W
+                <input
+                  id="canvasW"
+                  type="number"
+                  min="320"
+                  max="1920"
+                  value="1920"
+                />
+              </label>
+              <span>×</span>
+              <label>
+                H
+                <input
+                  id="canvasH"
+                  type="number"
+                  min="400"
+                  max="3000"
+                  value="1080"
+                />
+              </label>
+              <button id="applyCanvas">적용</button>
+            </div>
+            <div class="view-controls">
+              <button id="gridToggle" class="active" title="격자 표시">
+                #
+              </button>
+              <button id="zoomOut" title="축소">−</button>
+              <button id="zoomValue" title="화면 맞춤">100%</button>
+              <button id="zoomIn" title="확대">＋</button>
+              <button id="fitCanvas" title="화면에 맞춤">⌗</button>
+            </div>
+          </div>
+          <div class="page-tabs-bar">
+            <div class="page-tabs" id="pageTabs" role="tablist" aria-label="프로젝트 페이지"></div>
+            <button class="add-page-tab" id="addPageTab" type="button" title="새 페이지 추가">＋</button>
+          </div>
+          <div class="canvas-viewport" id="canvasViewport">
+            <div class="canvas-hint">
+              <kbd>Space</kbd>
+              드래그로 이동 ·
+              <kbd>Ctrl</kbd>
+              + 휠로 확대
+            </div>
+            <div class="canvas-shell" id="shell">
+              <div class="canvas grid empty" id="canvas"></div>
+            </div>
+          </div>
+        </section>
+        <!-- 선택한 요소의 글자, 크기, 색상, 고급효과를 수정하는 오른쪽 패널 -->
+        <aside class="inspector">
+          <div class="inspector-head">
+            <h2>요소 꾸미기</h2>
+            <div class="inspector-head-actions">
+              <button id="copyNode" title="선택한 요소 복사하기">복사하기</button>
+              <button id="resetNode" title="선택한 요소를 기본설정으로 초기화">초기화</button>
+              <button class="close-inspector" title="편집 패널 닫기">×</button>
+            </div>
+          </div>
+          <div id="inspectorBody">
+            <div class="empty-inspector">
+              캔버스에서 요소를 선택하면
+              <br />
+              글자, 크기, 색상을 쉽게 바꿀 수 있어요.
+            </div>
+          </div>
+        </aside>
+      </main>
+    </div>
+    <!-- 아래 대화상자는 평소 숨겨지고, 필요한 순간에 .open 클래스가 붙어 표시됩니다. -->
+    <!-- 생성된 HTML/CSS를 확인하고 복사하는 코드 창 -->
+    <div class="modal" id="codeModal">
+      <div class="modal-card">
+        <div class="modal-head">
+          <h3>&lt;/&gt; 생성된 코드</h3>
+          <div class="tabs">
+            <button class="active" data-tab="html">HTML</button>
+            <button data-tab="css">CSS</button>
+          </div>
+          <div class="modal-actions">
+            <button id="closeModal">닫기</button>
+            <button class="copy" id="copyBtn">복사하기</button>
+          </div>
+        </div>
+        <pre id="codeOutput"></pre>
+      </div>
+    </div>
+    <!-- 저장 완료 결과를 짧게 알려 주는 창 -->
+    <div class="modal save-modal" id="saveModal">
+      <div class="save-card">
+        <div class="save-check">✓</div>
+        <h3>프로젝트가 저장됐어요</h3>
+        <p id="savedProjectName">새 프로젝트</p>
+        <small id="savedAt">방금 저장됨</small>
+        <button id="closeSave">계속 편집하기</button>
+      </div>
+    </div>
+    <!-- 브라우저 저장소에 보관된 프로젝트를 불러오거나 삭제하는 창 -->
+    <div class="modal" id="savedProjectsModal">
+      <div class="library-card">
+        <div class="library-head">
+          <div><strong>저장함</strong><span>브라우저에 저장된 프로젝트</span></div>
+          <button id="closeSavedProjects">×</button>
+        </div>
+        <div class="saved-project-list" id="savedProjectList"></div>
+      </div>
+    </div>
+    <!-- 현재 사용 단계의 대상 위치를 강조하는 도움말 창 -->
+    <div class="modal tutorial-modal" id="tutorialModal" role="dialog" aria-modal="true" aria-labelledby="tutorialTitle">
+      <div class="tutorial-spotlight" id="tutorialSpotlight"></div>
+      <div class="tutorial-card">
+        <div class="tutorial-progress-head">
+          <span class="tutorial-step" id="tutorialStep">처음 시작하기</span>
+          <span class="tutorial-percent" id="tutorialPercent">0%</span>
+        </div>
+        <div class="tutorial-progress" aria-hidden="true"><span id="tutorialProgressBar"></span></div>
+        <h3 id="tutorialTitle">CODE LAB 사용법</h3>
+        <p id="tutorialText"></p>
+        <div class="tutorial-dots" id="tutorialDots" aria-label="튜토리얼 단계"></div>
+        <label class="tutorial-dismiss-option">
+          <input type="checkbox" id="dontShowTutorialAgain" />
+          <span>다음부터 자동으로 열지 않기</span>
+        </label>
+        <div class="tutorial-actions">
+          <button id="skipTutorial">건너뛰기</button>
+          <button id="prevTutorial">이전</button>
+          <button class="primary" id="nextTutorial">다음</button>
+        </div>
+      </div>
+    </div>
+    <!-- 편집 UI를 제외한 실제 결과 화면을 iframe으로 보여 주는 미리보기 창 -->
+    <div class="modal preview-modal" id="previewModal">
+      <div class="preview-card">
+        <div class="preview-head">
+          <div>
+            <strong>미리보기</strong>
+            <span id="previewProjectName">새 프로젝트</span>
+          </div>
+          <div class="preview-devices">
+            <button class="active" data-preview-device="desktop">데스크탑</button>
+            <button data-preview-device="laptop">노트북</button>
+            <button data-preview-device="mobile">핸드폰</button>
+          </div>
+          <button class="preview-close" id="closePreview">×</button>
+        </div>
+        <div class="preview-stage">
+          <div class="monitor-preview" id="monitorPreview">
+            <img src="monitor.png" alt="" aria-hidden="true" />
+            <div class="monitor-screen" id="monitorScreen">
+              <iframe id="previewFrame" title="웹페이지 미리보기"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- 페이지 이름을 입력받는 전용 폼 -->
+    <div class="modal confirm-modal" id="pageNameModal" role="dialog" aria-modal="true" aria-labelledby="pageNameTitle">
+      <form class="confirm-card page-name-card" id="pageNameForm">
+        <div class="confirm-icon page-name-icon">✎</div>
+        <span class="confirm-label">페이지 설정</span>
+        <h3 id="pageNameTitle">페이지 이름 변경</h3>
+        <p>탭에서 알아보기 쉬운 이름을 입력해 주세요.</p>
+        <label class="page-name-field" for="pageNameInput">
+          <span>페이지 이름</span>
+          <input id="pageNameInput" type="text" maxlength="30" autocomplete="off" />
+          <small><span id="pageNameCount">0</span>/30</small>
+        </label>
+        <div class="confirm-actions">
+          <button id="cancelPageName" type="button">취소</button>
+          <button class="confirm-primary" type="submit">변경하기</button>
+        </div>
+      </form>
+    </div>
+    <!-- 삭제나 새 프로젝트 생성처럼 확인이 필요한 작업이 공통으로 사용하는 창 -->
+    <div class="modal confirm-modal" id="confirmModal" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+      <div class="confirm-card">
+        <div class="confirm-icon">!</div>
+        <span class="confirm-label">확인이 필요해요</span>
+        <h3 id="confirmTitle">정말 진행할까요?</h3>
+        <p id="confirmMessage"></p>
+        <div class="confirm-actions">
+          <button id="confirmCancel">취소</button>
+          <button class="confirm-primary" id="confirmSecondary" hidden>저장하고 만들기</button>
+          <button class="confirm-primary" id="confirmAccept">확인</button>
+        </div>
+      </div>
+    </div>
+    <!-- 비회원이 회원 전용 기능을 눌렀을 때 표시되는 가입 안내 창 -->
+    <div class="modal confirm-modal" id="signupModal" role="dialog" aria-modal="true" aria-labelledby="signupTitle">
+      <div class="confirm-card signup-card">
+        <div class="signup-logo">
+          <img class="theme-logo theme-logo-light" src="logo.png" alt="CODE LAB" />
+          <img class="theme-logo theme-logo-dark" src="logo_darkmode.png" alt="" aria-hidden="true" />
+        </div>
+        <span class="confirm-label">CODE LAB 회원 혜택</span>
+        <h3 id="signupTitle">회원가입하고 모든 기능 사용하기</h3>
+        <p>여러 페이지, 전체 기기 라이브 프리뷰, 미리보기와 제한 없는 저장함을 사용할 수 있어요.</p>
+        <div class="confirm-actions">
+          <button id="closeSignup">나중에</button>
+          <button class="confirm-primary" id="completeSignup">회원가입하고 시작하기</button>
+        </div>
+      </div>
+    </div>
+    <!-- 비회원 저장 개수 제한에 도달했을 때 표시되는 안내 창 -->
+    <div class="modal confirm-modal" id="storageLimitModal" role="dialog" aria-modal="true" aria-labelledby="storageLimitTitle">
+      <div class="confirm-card">
+        <div class="confirm-icon">!</div>
+        <span class="confirm-label">비회원 저장 한도</span>
+        <h3 id="storageLimitTitle">저장함은 1개까지만 사용할 수 있어요</h3>
+        <p>새 프로젝트를 저장하려면 기존 프로젝트를 삭제하거나 회원가입해 주세요.</p>
+        <div class="confirm-actions">
+          <button id="closeStorageLimit">저장함 확인</button>
+          <button class="confirm-primary" id="signupFromStorageLimit">회원가입하러 가기</button>
+        </div>
+      </div>
+    </div>
+    <!-- 짧은 작업 결과와 버튼 설명을 알리는 공용 UI -->
+    <div class="toast" id="toast"></div>
+    <div class="ui-tooltip" id="uiTooltip" role="tooltip"></div>
+    <script src="app.js?v=127" defer></script>
+  </body>
+</html>

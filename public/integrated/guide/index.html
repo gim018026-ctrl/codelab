@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="자주 사용하는 HTML 태그와 CSS 속성을 빠르게 찾는 CODE LAB 치트키 사전" />
+    <title>CODE LAB | HTML/CSS 치트키 사전</title>
+    <link rel="stylesheet" href="./style.css?v=20" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <div class="example-modal" id="exampleModal" role="dialog" aria-modal="true" aria-labelledby="exampleModalTitle" hidden>
+      <div class="example-modal__panel">
+        <div class="example-modal__head">
+          <div>
+            <span class="example-modal__eyebrow">직접 확인하기</span>
+            <h2 id="exampleModalTitle">예시 미리보기</h2>
+          </div>
+          <button type="button" class="example-modal__close" id="closeExampleModal" aria-label="예시 닫기">&times;</button>
+        </div>
+        <div class="example-modal__content">
+          <section class="example-modal__code-pane">
+            <div class="example-modal__pane-title">
+              <span>코드</span>
+              <button type="button" id="copyExampleCode">복사하기</button>
+            </div>
+            <pre id="exampleModalCode"></pre>
+          </section>
+          <section class="example-modal__preview-pane">
+            <div class="example-modal__pane-title"><span>실행 결과</span></div>
+            <iframe id="exampleModalFrame" title="예시 코드 실행 결과" sandbox=""></iframe>
+            <div id="exampleModalResult" class="example-modal__result"></div>
+            <div class="example-modal__description">
+              <span class="example-modal__description-icon" aria-hidden="true">&lt;/&gt;</span>
+              <div>
+                <strong>이렇게 사용해요</strong>
+                <p id="exampleModalDescription"></p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <script type="module">
+      import { pageMarkup } from './pageMarkup.js?v=20';
+
+      const root = document.getElementById('root');
+      root.innerHTML = pageMarkup;
+
+      // 공통 React 헤더가 바깥에 있으므로 원본 페이지의 중복 헤더는 제거한다.
+      root.querySelector('.header')?.remove();
+
+      const legacyScript = document.createElement('script');
+      legacyScript.src = './legacy.js?v=20';
+      legacyScript.onload = () => window.initCheatsheet?.();
+      legacyScript.onerror = () => {
+        root.insertAdjacentHTML(
+          'afterbegin',
+          '<p role="alert" style="padding:16px;text-align:center">치트키 사전 기능을 불러오지 못했습니다.</p>',
+        );
+      };
+      document.body.appendChild(legacyScript);
+    </script>
+  </body>
+</html>

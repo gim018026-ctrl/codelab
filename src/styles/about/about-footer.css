@@ -1,0 +1,305 @@
+/* ============ ABOUT: footer ============ */
+
+.about-footer {
+  position: relative;
+  overflow: hidden;
+  background: var(--color-bg-soft);
+  border-top: 1px solid var(--color-border-soft);
+  padding: 80px 0 32px;
+}
+
+.about-footer__brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+  padding-bottom: 56px;
+}
+
+.about-footer__mark {
+  position: relative;
+  width: 420px;
+  height: 230px;
+  margin-bottom: 20px;
+}
+
+.about-footer__icon {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  width: 300px;
+  height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 150px;
+  font-weight: 800;
+  color: var(--color-primary);
+  animation: footer-icon-float 4s ease-in-out infinite;
+}
+
+/* 세 가지 배지는 position:absolute로 아이콘 주변에 자유롭게 배치합니다. */
+.about-footer__tag {
+  position: absolute;
+  z-index: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 10px 26px rgba(40, 34, 72, 0.1);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.about-footer__tag--html {
+  top: 34px;
+  left: 0;
+  color: #ef476f;
+  animation: footer-tag-drift 4.8s ease-in-out infinite;
+}
+
+.about-footer__tag--css {
+  top: 22px;
+  right: 0;
+  color: #2563eb;
+  animation: footer-tag-drift 5.4s ease-in-out -1.6s infinite;
+}
+
+.about-footer__tag--js {
+  right: 28px;
+  bottom: 20px;
+  color: #9a6b00;
+  animation: footer-tag-drift 4.5s ease-in-out -0.8s infinite;
+}
+
+@keyframes footer-icon-float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes footer-tag-drift {
+  0%, 100% {
+    transform: translateY(0) rotate(-1deg);
+  }
+  50% {
+    transform: translateY(-8px) rotate(1deg);
+  }
+}
+
+.about-footer__brand h2 {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  color: var(--color-ink);
+  margin-bottom: 10px;
+}
+
+.about-footer__cursor {
+  width: 3px;
+  height: 0.9em;
+  margin-left: 7px;
+  border-radius: 2px;
+  background: var(--color-primary);
+  animation: footer-cursor-blink 1s steps(1) infinite;
+}
+
+@keyframes footer-cursor-blink {
+  0%, 48% { opacity: 1; }
+  49%, 100% { opacity: 0; }
+}
+
+.about-footer__code-line {
+  padding: 9px 15px;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-pill);
+  background: #fff;
+  box-shadow: 0 8px 22px rgba(40, 34, 72, 0.07);
+  font-family: "JetBrains Mono", Consolas, monospace;
+  font-size: 12px;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+}
+
+.about-footer__code-line span {
+  color: var(--color-primary);
+  font-weight: 800;
+}
+
+.about-footer__code-line strong {
+  color: #db2777;
+  font-weight: 700;
+}
+
+.about-footer__brand p {
+  font-size: 15px;
+  color: var(--color-text-muted);
+  margin-bottom: 30px;
+}
+
+@media (max-width: 480px) {
+  .about-footer__mark {
+    width: min(300px, 100%);
+    height: 150px;
+  }
+
+  .about-footer__tag {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+
+  .about-footer__tag--html { top: 16px; left: 0; }
+  .about-footer__tag--css { top: 8px; right: 0; }
+  .about-footer__tag--js { right: 10px; bottom: 8px; }
+
+  .about-footer__brand h2 {
+    font-size: 27px;
+  }
+
+  .about-footer__code-line {
+    font-size: 10.5px;
+  }
+}
+
+.about-footer__divider {
+  height: 1px;
+  background: var(--color-border-soft);
+  margin-bottom: 48px;
+}
+
+.about-footer__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr) 1.6fr;
+  gap: 40px;
+  padding-top: 30px;
+  padding-bottom: 40px;
+}
+
+.about-footer__col span {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin-bottom: 20px;
+}
+
+.about-footer__col a {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 14px;
+  transition: color 0.15s ease;
+}
+
+.about-footer__col a:hover {
+  color: var(--color-primary);
+}
+
+.about-footer__newsletter span {
+  display: block;
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--color-ink);
+  margin-bottom: 10px;
+}
+
+.about-footer__newsletter p {
+  font-size: 13px;
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+
+.about-footer__form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  background: #fff;
+  border: 1px solid var(--color-border-soft);
+  border-radius: var(--radius-pill);
+  padding: 6px 6px 6px 20px;
+  box-shadow: var(--shadow-lg);
+}
+
+.about-footer__form input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--color-ink);
+}
+
+.about-footer__form input::placeholder {
+  color: var(--color-text-faint);
+}
+
+.about-footer__form button {
+  flex: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+
+.about-footer__form button:hover {
+  background: var(--color-primary-dark);
+  transform: translateX(2px);
+}
+
+.about-footer__bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid var(--color-border-soft);
+  padding-top: 24px;
+  font-size: 13px;
+  color: var(--color-text-faint);
+  
+}
+
+.about-footer__socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.about-footer__socials a {
+  color: var(--color-text-muted);
+  transition: color 0.15s ease;
+}
+
+.about-footer__socials a:hover {
+  color: var(--color-primary);
+}
+
+.about-footer__legal {
+  display: flex;
+  gap: 24px;
+}
+
+.about-footer__legal a {
+  color: var(--color-text-faint);
+  transition: color 0.15s ease;
+}
+
+.about-footer__legal a:hover {
+  color: var(--color-ink-soft);
+}
