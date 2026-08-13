@@ -9,6 +9,7 @@ import Signup from './pages/Signup.jsx';
 import Challenges from './pages/Challenges.jsx';
 import Builder from './pages/Builder.jsx';
 import Guide from './pages/Guide.jsx';
+import UIInspiration from './pages/UIInspiration.jsx';
 
 /**
  * 애플리케이션의 최상위 화면 구성 요소.
@@ -97,6 +98,7 @@ export default function App() {
           {/* 빌더 자체 주소다. 직접 새로고침하거나 직접 접속할 때는 인트로가 자동 실행되지 않는다. */}
           <Route path="/builder" element={<Builder />} />
           <Route path="/guide" element={<Guide />} />
+          <Route path="/ui-inspiration" element={<UIInspiration />} />
         </Routes>
       </div>
     </>

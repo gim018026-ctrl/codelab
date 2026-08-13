@@ -1,0 +1,326 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap");
+
+.ui-inspiration-page {
+  font-family: "DM Sans", "Pretendard", -apple-system, BlinkMacSystemFont, sans-serif;
+  color: #171714;
+  background: #f7f7fb;
+  font-synthesis: none;
+  --ink: #171623;
+  --muted: #747487;
+  --line: #e5e4ed;
+  --paper: #f7f7fb;
+  --brand: #5439ff;
+  --brand-dark: #4328e8;
+  --brand-soft: #efedff;
+}
+
+.ui-inspiration-page * { box-sizing: border-box; }
+.ui-inspiration-page { scroll-behavior: smooth; }
+.ui-inspiration-page { margin: 0; min-width: 320px; background: var(--paper); }
+body.drawer-open { overflow: hidden; }
+.ui-inspiration-page button, .ui-inspiration-page input, .ui-inspiration-page select { font: inherit; }
+.ui-inspiration-page button, .ui-inspiration-page a { -webkit-tap-highlight-color: transparent; }
+.ui-inspiration-page button { color: inherit; }
+.ui-inspiration-page button:focus-visible, .ui-inspiration-page input:focus-visible, .ui-inspiration-page select:focus-visible, .ui-inspiration-page a:focus-visible { outline: 2px solid #6945ff; outline-offset: 3px; }
+
+.ui-inspiration-page .app-shell { min-height: 100vh; overflow: hidden; }
+.ui-inspiration-page .site-header {
+  width: min(1480px, calc(100% - 64px));
+  height: 78px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+.ui-inspiration-page .brand { display: inline-flex; align-items: center; gap: 11px; color: var(--ink); text-decoration: none; font: 800 14px "Manrope", sans-serif; letter-spacing: .12em; }
+.ui-inspiration-page .brand-mark { width: 36px; height: 36px; display: grid; place-items: center; color: white; background: linear-gradient(145deg, #725cff, #4b2cff); border-radius: 10px; box-shadow: 0 7px 18px rgba(84,57,255,.22); }
+.ui-inspiration-page .header-meta { display: flex; align-items: center; gap: 28px; color: var(--muted); font-size: 12px; }
+.ui-inspiration-page .header-meta > span { display: flex; align-items: center; gap: 8px; }
+.ui-inspiration-page .status-dot { width: 7px; height: 7px; display: inline-block; border-radius: 50%; background: #6d54ff; box-shadow: 0 0 0 4px rgba(84,57,255,.12); }
+
+.ui-inspiration-page .intro {
+  width: min(1480px, calc(100% - 64px));
+  min-height: 510px;
+  margin: auto;
+  padding: 94px 0 70px;
+  position: relative;
+  border-bottom: 1px solid var(--line);
+  background: radial-gradient(circle at 83% 34%, rgba(84,57,255,.11), transparent 21%);
+}
+.ui-inspiration-page .intro-art {
+  width: 330px; height: 330px;
+  position: absolute; right: 2%; top: 62px; z-index: 1;
+  display: grid; place-items: center;
+  border: 1px solid rgba(113,91,255,.3);
+  border-radius: 54px;
+  background:
+    radial-gradient(circle at 28% 20%, rgba(255,255,255,.98), transparent 34%),
+    linear-gradient(145deg, rgba(250,249,255,.95), rgba(212,205,255,.82));
+  box-shadow: 12px 16px 0 rgba(109,86,238,.08), 28px 38px 72px rgba(77,56,190,.2), inset 8px 8px 18px rgba(255,255,255,.78), inset -10px -12px 24px rgba(112,87,236,.12);
+  transform: perspective(900px) rotateX(5deg) rotateY(-9deg) rotateZ(7deg);
+  transform-style: preserve-3d;
+}
+.ui-inspiration-page .intro-art::before { content: ""; width: 66%; height: 66%; position: absolute; border: 1px solid rgba(111,86,255,.2); border-radius: 42px; background: linear-gradient(145deg, rgba(255,255,255,.5), rgba(111,86,255,.08)); box-shadow: inset 0 0 28px rgba(99,72,255,.08); transform: translateZ(22px); }
+.ui-inspiration-page .intro-art::after { content: ""; width: 110px; height: 26px; position: absolute; left: 50%; bottom: 28px; border-radius: 50%; background: rgba(68,43,200,.2); filter: blur(18px); transform: translateX(-50%) translateZ(-18px); }
+.ui-inspiration-page .code-mark { position: relative; z-index: 2; color: #6247ff; font: 800 74px/1 "Manrope"; letter-spacing: -.1em; text-shadow: 0 2px 0 #bcb0ff, 0 5px 0 #9d8cff, 0 9px 14px rgba(64,37,205,.3), 0 20px 34px rgba(84,57,255,.24); transform: translateZ(58px) rotateZ(-7deg); }
+.ui-inspiration-page .code-mark::before { content: attr(data-mark); position: absolute; inset: 0; z-index: -1; color: rgba(62,35,203,.25); filter: blur(1px); transform: translate(8px, 10px) translateZ(-28px); }
+.ui-inspiration-page .code-mark::after { content: ""; width: 14px; height: 14px; position: absolute; right: -22px; top: -18px; border-radius: 50%; background: #8a74ff; box-shadow: -150px 102px 0 -3px #b5a8ff, -122px -26px 0 -5px #fff, 0 0 20px rgba(98,71,255,.7); }
+.ui-inspiration-page .eyebrow { margin-bottom: 25px; display: flex; align-items: center; gap: 7px; color: var(--brand); font-size: 12px; font-weight: 700; letter-spacing: .13em; text-transform: uppercase; }
+.ui-inspiration-page .intro h1 { max-width: 850px; margin: 0; position: relative; z-index: 2; font: 600 clamp(52px, 6.2vw, 96px)/.99 "Manrope", sans-serif; letter-spacing: -.065em; }
+.ui-inspiration-page .intro h1 em { color: var(--brand); font-style: normal; }
+.ui-inspiration-page .intro > p { max-width: 560px; margin: 34px 0 0; color: var(--muted); font-size: 16px; line-height: 1.8; word-break: keep-all; }
+.ui-inspiration-page .intro-stats { position: absolute; right: 0; bottom: 45px; z-index: 2; display: flex; }
+.ui-inspiration-page .intro-stats div { min-width: 112px; padding: 0 22px; border-left: 1px solid var(--line); }
+.ui-inspiration-page .intro-stats strong, .ui-inspiration-page .intro-stats span { display: block; }
+.ui-inspiration-page .intro-stats strong { margin-bottom: 7px; font: 600 24px "Manrope"; }
+.ui-inspiration-page .intro-stats span { color: var(--muted); font-size: 11px; }
+
+.ui-inspiration-page .library { width: min(1480px, calc(100% - 64px)); margin: auto; padding: 72px 0 120px; }
+.ui-inspiration-page .section-heading { margin-bottom: 34px; display: flex; align-items: end; justify-content: space-between; }
+.ui-inspiration-page .section-heading > div { display: flex; align-items: center; gap: 15px; }
+.ui-inspiration-page .section-heading h2 { margin: 0; font: 600 clamp(27px, 3vw, 42px) "Manrope", sans-serif; letter-spacing: -.045em; }
+.ui-inspiration-page .section-heading p { margin: 0; color: var(--muted); font-size: 13px; }
+
+.ui-inspiration-page .control-panel { min-height: 70px; display: flex; align-items: center; justify-content: space-between; gap: 24px; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--line); }
+.ui-inspiration-page .search-box { width: min(430px, 42vw); display: flex; align-items: center; gap: 12px; }
+.ui-inspiration-page .search-box input { width: 100%; padding: 23px 0; border: 0; outline: 0; background: transparent; color: var(--ink); }
+.ui-inspiration-page .search-box input::placeholder { color: #929087; }
+.ui-inspiration-page .search-box > button { padding: 5px; display: grid; border: 0; background: transparent; cursor: pointer; }
+.ui-inspiration-page .control-actions { display: flex; align-items: center; gap: 9px; }
+.ui-inspiration-page .favorite-filter, .ui-inspiration-page .sort-control { height: 40px; padding: 0 13px; display: flex; align-items: center; gap: 8px; border: 1px solid var(--line); border-radius: 10px; background: #fff; font-size: 12px; }
+.ui-inspiration-page .favorite-filter { cursor: pointer; }
+.ui-inspiration-page .favorite-filter.active { border-color: var(--brand); background: var(--brand); color: white; }
+.ui-inspiration-page .favorite-filter span { min-width: 18px; height: 18px; display: grid; place-items: center; border-radius: 50%; background: rgba(128,128,128,.18); font-size: 10px; }
+.ui-inspiration-page .sort-control select { padding: 0 2px; border: 0; outline: 0; background: transparent; cursor: pointer; }
+.ui-inspiration-page .view-toggle { padding: 3px; display: flex; border: 1px solid var(--line); border-radius: 10px; background: #fff; }
+.ui-inspiration-page .view-toggle button { width: 34px; height: 32px; display: grid; place-items: center; border: 0; border-radius: 7px; background: transparent; cursor: pointer; }
+.ui-inspiration-page .view-toggle button.active { background: var(--brand-soft); color: var(--brand); }
+
+.ui-inspiration-page .category-row { padding: 24px 0 35px; display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; }
+.ui-inspiration-page .category-row::-webkit-scrollbar { display: none; }
+.ui-inspiration-page .category-row button { padding: 10px 15px; display: flex; align-items: center; gap: 9px; flex: 0 0 auto; border: 1px solid var(--line); border-radius: 99px; background: transparent; color: #69675f; font-size: 12px; cursor: pointer; transition: .2s ease; }
+.ui-inspiration-page .category-row button:hover { border-color: #8b887e; color: var(--ink); }
+.ui-inspiration-page .category-row button.active { border-color: var(--brand); background: var(--brand); color: white; }
+.ui-inspiration-page .category-row button span { opacity: .55; font-size: 9px; }
+.ui-inspiration-page .subcategory-tabs { margin: -17px 0 34px; padding: 10px 12px; display: flex; align-items: center; gap: 7px; overflow-x: auto; border: 1px solid #e8e5f2; border-radius: 13px; background: rgba(255,255,255,.72); box-shadow: 0 8px 24px rgba(42,31,100,.04); scrollbar-width: none; animation: subcategory-enter .3s cubic-bezier(.22,1,.36,1) both; }
+.ui-inspiration-page .subcategory-tabs::-webkit-scrollbar { display: none; }
+.ui-inspiration-page .subcategory-label { margin: 0 4px; color: #9a97a8; font-size: 9px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.ui-inspiration-page .subcategory-tabs button { padding: 8px 11px; display: inline-flex; align-items: center; gap: 7px; flex: 0 0 auto; border: 0; border-radius: 8px; background: transparent; color: #777486; font-size: 11px; transition: color .2s, background .2s, box-shadow .2s, transform .2s; }
+.ui-inspiration-page .subcategory-tabs button:hover { color: var(--brand); background: var(--brand-soft); transform: translateY(-1px); }
+.ui-inspiration-page .subcategory-tabs button.active { color: #fff; background: var(--brand); box-shadow: 0 6px 14px rgba(84,57,255,.2); }
+.ui-inspiration-page .subcategory-tabs button span { min-width: 17px; height: 17px; display: grid; place-items: center; border-radius: 50%; background: rgba(128,128,128,.14); font-size: 8px; }
+.ui-inspiration-page .subcategory-tabs button.active span { background: rgba(255,255,255,.2); }
+.ui-inspiration-page .collection-swap { animation: collection-swap .38s cubic-bezier(.22,1,.36,1) both; }
+.ui-inspiration-page .all-category-groups { display: flex; flex-direction: column; gap: 84px; }
+.ui-inspiration-page .category-group { min-width: 0; }
+.ui-inspiration-page .category-group__heading { margin-bottom: 25px; padding: 0 0 14px; display: flex; align-items: end; justify-content: space-between; border-bottom: 1px solid var(--ink); }
+.ui-inspiration-page .category-group__heading h3 { margin: 0; font: 650 clamp(23px, 2.5vw, 34px) "Manrope", sans-serif; letter-spacing: -.04em; }
+.ui-inspiration-page .category-group__heading span { color: var(--muted); font-size: 10px; letter-spacing: .08em; text-transform: uppercase; }
+
+@keyframes subcategory-enter { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: none; } }
+@keyframes collection-swap { from { opacity: 0; transform: translateY(12px) scale(.992); } to { opacity: 1; transform: none; } }
+
+.ui-inspiration-page .project-collection.grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); column-gap: 22px; row-gap: 54px; }
+.ui-inspiration-page .project-card { min-width: 0; }
+.ui-inspiration-page .project-visual { width: 100%; aspect-ratio: 16 / 10.4; padding: 0; position: relative; display: block; overflow: hidden; border: 1px solid #e1e0ea; border-radius: 15px; background: #efeff5; cursor: pointer; box-shadow: 0 8px 28px rgba(35,30,70,.04); transition: border-color .25s, box-shadow .25s; }
+.ui-inspiration-page .project-card:hover .project-visual { border-color: rgba(84,57,255,.38); box-shadow: 0 18px 42px rgba(55,39,135,.1); }
+.ui-inspiration-page .project-visual img { width: 100%; height: 100%; display: block; object-fit: cover; transition: transform .55s cubic-bezier(.2,.7,.2,1); }
+.ui-inspiration-page .project-card:hover .project-visual img { transform: scale(1.025); }
+.ui-inspiration-page .visual-index { position: absolute; left: 12px; top: 12px; padding: 6px 8px; border-radius: 7px; background: rgba(23,22,35,.86); color: white; font-size: 10px; backdrop-filter: blur(8px); }
+.ui-inspiration-page .open-label { position: absolute; right: 12px; bottom: 12px; padding: 10px 13px; display: flex; align-items: center; gap: 7px; opacity: 0; transform: translateY(8px); border-radius: 9px; background: var(--brand); color: white; font-size: 11px; font-weight: 700; box-shadow: 0 8px 20px rgba(84,57,255,.25); transition: .25s ease; }
+.ui-inspiration-page .project-card:hover .open-label, .ui-inspiration-page .project-visual:focus-visible .open-label { opacity: 1; transform: none; }
+.ui-inspiration-page .project-info { padding-top: 17px; display: flex; align-items: flex-start; justify-content: space-between; gap: 20px; }
+.ui-inspiration-page .project-copy { min-width: 0; }
+.ui-inspiration-page .project-category { display: block; margin-bottom: 8px; color: #77756d; font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.ui-inspiration-page .project-copy > button { padding: 0; text-align: left; border: 0; background: transparent; cursor: pointer; }
+.ui-inspiration-page .project-copy h3 { margin: 0 0 4px; font: 600 20px "Manrope", sans-serif; letter-spacing: -.03em; }
+.ui-inspiration-page .project-copy p { margin: 0; overflow: hidden; color: var(--muted); font-size: 12px; text-overflow: ellipsis; white-space: nowrap; }
+.ui-inspiration-page .card-actions { padding-top: 18px; display: flex; align-items: center; gap: 14px; }
+.ui-inspiration-page .mini-palette { display: flex; }
+.ui-inspiration-page .mini-palette i { width: 16px; height: 16px; margin-left: -5px; display: block; border: 1px solid rgba(0,0,0,.12); border-radius: 50%; box-shadow: 0 0 0 2px var(--paper); }
+.ui-inspiration-page .mini-palette i:first-child { margin-left: 0; }
+.ui-inspiration-page .heart-button { width: 38px; height: 38px; padding: 0; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; transition: .2s; }
+.ui-inspiration-page .heart-button:hover, .ui-inspiration-page .heart-button.active { border-color: var(--brand); background: var(--brand); color: white; }
+
+.ui-inspiration-page .project-collection.list { border-top: 1px solid var(--line); }
+.ui-inspiration-page .project-collection.list .project-card { padding: 18px 0; display: grid; grid-template-columns: 240px 1fr; gap: 26px; border-bottom: 1px solid var(--line); }
+.ui-inspiration-page .project-collection.list .project-visual { aspect-ratio: 16 / 9; }
+.ui-inspiration-page .project-collection.list .project-info { height: 100%; padding: 6px 0; align-items: center; }
+.ui-inspiration-page .project-collection.list .project-copy h3 { font-size: 28px; }
+.ui-inspiration-page .project-collection.list .project-copy p { margin-top: 8px; }
+.ui-inspiration-page .project-collection.list .card-actions { padding: 0; }
+
+.ui-inspiration-page .empty-state { min-height: 390px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 1px dashed #bbb8ae; color: var(--muted); text-align: center; }
+.ui-inspiration-page .empty-state h3 { margin: 18px 0 6px; color: var(--ink); font: 600 20px "Manrope"; }
+.ui-inspiration-page .empty-state p { margin: 0 0 22px; font-size: 13px; }
+.ui-inspiration-page .empty-state button { padding: 11px 17px; border: 0; border-radius: 9px; background: var(--brand); color: white; cursor: pointer; }
+
+.ui-inspiration-page footer { width: min(1480px, calc(100% - 64px)); margin: auto; padding: 26px 0 35px; display: flex; justify-content: space-between; border-top: 1px solid var(--ink); color: var(--muted); font-size: 11px; letter-spacing: .06em; }
+.ui-inspiration-page footer p { margin: 0; }
+
+.ui-inspiration-page .drawer-backdrop { position: fixed; inset: 0; z-index: 40; visibility: hidden; opacity: 0; background: rgba(15,15,13,.42); backdrop-filter: blur(3px); transition: .35s; }
+.ui-inspiration-page .drawer-backdrop.open { visibility: visible; opacity: 1; }
+.ui-inspiration-page .detail-drawer { width: min(940px, calc(100vw - 32px)); position: fixed; right: 16px; top: 16px; bottom: 16px; z-index: 50; display: grid; grid-template-rows: 62px minmax(0, 1fr); overflow: hidden; transform: translateX(calc(100% + 32px)); border: 1px solid rgba(84,57,255,.12); border-radius: 22px; background: #fff; box-shadow: -20px 0 70px rgba(30,24,70,.16); transition: transform .42s cubic-bezier(.22,1,.36,1); }
+.ui-inspiration-page .detail-drawer.open { transform: none; }
+.ui-inspiration-page .drawer-topbar { height: 62px; padding: 0 30px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid var(--line); background: rgba(255,255,255,.92); backdrop-filter: blur(12px); color: var(--muted); font-size: 10px; letter-spacing: .1em; text-transform: uppercase; }
+.ui-inspiration-page .drawer-topbar button { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid var(--line); border-radius: 50%; background: transparent; cursor: pointer; }
+.ui-inspiration-page .drawer-body { min-height: 0; padding: 28px 30px 30px; display: grid; grid-template-rows: auto minmax(0, 1fr); gap: 24px; overflow: hidden; }
+.ui-inspiration-page .drawer-title { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
+.ui-inspiration-page .drawer-title > div > span { color: var(--brand); font-size: 10px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
+.ui-inspiration-page .drawer-title h2 { margin: 6px 0 3px; font: 650 34px "Manrope"; letter-spacing: -.04em; word-spacing: .12em; }
+.ui-inspiration-page .drawer-title p { margin: 0; color: var(--muted); font-size: 13px; }
+.ui-inspiration-page .drawer-columns { min-height: 0; display: grid; grid-template-columns: minmax(0, 1.18fr) minmax(330px, .82fr); gap: 30px; }
+.ui-inspiration-page .drawer-showcase, .ui-inspiration-page .drawer-details { min-height: 0; }
+.ui-inspiration-page .drawer-showcase { display: flex; flex-direction: column; padding-bottom: 2px; overflow: hidden; border-radius: 14px; }
+.ui-inspiration-page .drawer-details { display: flex; flex-direction: column; gap: 10px; }
+.ui-inspiration-page .drawer-preview { height: 100%; overflow: hidden; border: 1px solid var(--line); border-radius: 14px; background: #f0eff7; }
+.ui-inspiration-page .drawer-preview img { width: 100%; height: auto; display: block; }
+.ui-inspiration-page .description { margin: 0; color: #66645d; font-size: 12px; line-height: 1.7; word-break: keep-all; }
+.ui-inspiration-page .detail-block--overview { border-color: rgba(84,57,255,.18); background: linear-gradient(135deg, #f8f6ff, #fcfbff); }
+.ui-inspiration-page .detail-block { padding: 14px; border: 1px solid #ebe9f2; border-radius: 14px; background: #faf9fd; }
+.ui-inspiration-page .detail-block + .detail-block { padding-top: 14px; }
+.ui-inspiration-page .detail-block h3 { margin: 0 0 11px; font: 650 13px "Manrope"; }
+.ui-inspiration-page .block-heading { margin-bottom: 14px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+.ui-inspiration-page .block-heading h3 { margin-bottom: 0; }
+.ui-inspiration-page .block-heading button { min-width: 86px; padding: 9px 12px; display: flex; align-items: center; justify-content: center; gap: 7px; flex: 0 0 auto; border: 1px solid var(--line); border-radius: 8px; background: #fff; font-size: 10px; white-space: nowrap; cursor: pointer; }
+.ui-inspiration-page .color-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 8px; }
+.ui-inspiration-page .color-grid button { min-width: 0; padding: 0; border: 0; background: transparent; text-align: left; cursor: pointer; }
+.ui-inspiration-page .color-grid i { width: 100%; aspect-ratio: 1; display: block; border: 1px solid rgba(0,0,0,.1); }
+.ui-inspiration-page .color-grid span { margin-top: 7px; display: block; color: var(--muted); font-size: 8px; }
+.ui-inspiration-page .profile-list { margin: 0; border-top: 1px solid var(--line); }
+.ui-inspiration-page .profile-list div { padding: 8px 0; display: grid; grid-template-columns: 1fr 1.5fr; border-bottom: 1px solid var(--line); font-size: 11px; }
+.ui-inspiration-page .profile-list dt { color: var(--muted); }
+.ui-inspiration-page .profile-list dd { margin: 0; font-weight: 600; }
+.ui-inspiration-page .keyword-list { display: flex; flex-wrap: wrap; gap: 7px; }
+.ui-inspiration-page .keyword-list span { padding: 7px 9px; border: 1px solid var(--line); border-radius: 99px; color: var(--muted); font-size: 9px; }
+.ui-inspiration-page .detail-block--anatomy { padding-top: 15px; padding-bottom: 15px; }
+.ui-inspiration-page .anatomy-flow { display: flex; align-items: center; gap: 7px; }
+.ui-inspiration-page .anatomy-flow span { padding: 6px 7px; flex: 1 1 auto; border-radius: 6px; background: #fff; color: #646176; font-size: 8px; font-weight: 700; text-align: center; }
+.ui-inspiration-page .anatomy-flow span:nth-of-type(1) { color: #5439ff; background: #efedff; }
+.ui-inspiration-page .anatomy-flow span:nth-of-type(2) { color: #b45309; background: #fff4da; }
+.ui-inspiration-page .anatomy-flow span:nth-of-type(3) { color: #047857; background: #dcfce7; }
+.ui-inspiration-page .anatomy-flow span:nth-of-type(4) { color: #be185d; background: #fce7f3; }
+.ui-inspiration-page .anatomy-flow i { width: 4px; height: 4px; flex: 0 0 auto; border-radius: 50%; background: #c8c5d1; }
+.ui-inspiration-page .full-preview { width: 100%; min-height: 62px; max-height: 112px; padding: 17px 20px; display: flex; align-items: center; justify-content: space-between; flex: 1 1 62px; border: 0; border-radius: 13px; background: linear-gradient(90deg, var(--brand), var(--brand-dark)); color: white; font-size: 13px; font-weight: 700; cursor: pointer; box-shadow: 0 12px 28px rgba(84,57,255,.24); }
+.ui-inspiration-page .visit-site-button { width: 100%; min-height: 78px; margin-top: auto; padding: 16px 18px; display: flex; align-items: center; justify-content: space-between; border: 1px solid rgba(84,57,255,.22); border-radius: 14px; background: linear-gradient(135deg, #f3f0ff, #faf9ff); color: var(--brand); text-align: left; cursor: pointer; transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease, opacity .2s ease; }
+.ui-inspiration-page .visit-site-button.is-active:hover { transform: translateY(-1px); border-color: rgba(84,57,255,.5); box-shadow: 0 10px 24px rgba(84,57,255,.14); }
+.ui-inspiration-page .visit-site-button.is-disabled, .ui-inspiration-page .visit-site-button:disabled { cursor: not-allowed; opacity: .55; }
+.ui-inspiration-page .visit-site-button > span:first-child { display: flex; flex-direction: column; gap: 5px; font-size: 14px; font-weight: 800; }
+.ui-inspiration-page .visit-site-button small { color: #9893ad; font-size: 8px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.ui-inspiration-page .visit-site-button__icon { width: 39px; height: 39px; display: grid; place-items: center; border-radius: 50%; background: var(--brand); color: #fff; font-size: 19px; box-shadow: 0 8px 18px rgba(84,57,255,.22); }
+.ui-inspiration-page .image-lightbox { position: fixed; inset: 0; z-index: 80; visibility: hidden; opacity: 0; display: grid; grid-template-rows: auto 1fr auto; background: rgba(12,10,24,.94); backdrop-filter: blur(14px); color: white; transition: opacity .28s ease, visibility .28s ease; }
+.ui-inspiration-page .image-lightbox.open { visibility: visible; opacity: 1; }
+.ui-inspiration-page .lightbox-bar { min-height: 76px; padding: 14px 28px; display: flex; align-items: center; justify-content: space-between; border-bottom: 1px solid rgba(255,255,255,.12); }
+.ui-inspiration-page .lightbox-bar > div { display: flex; flex-direction: column; gap: 4px; }
+.ui-inspiration-page .lightbox-bar span { color: rgba(255,255,255,.55); font-size: 9px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.ui-inspiration-page .lightbox-bar strong { font: 600 15px "Manrope", sans-serif; }
+.ui-inspiration-page .lightbox-bar button { width: 42px; height: 42px; padding: 0; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; background: rgba(255,255,255,.08); color: white; cursor: pointer; transition: .2s; }
+.ui-inspiration-page .lightbox-bar button:hover { border-color: rgba(255,255,255,.45); background: rgba(255,255,255,.16); }
+.ui-inspiration-page .lightbox-workspace { min-height: 0; padding: 22px 28px; display: grid; grid-template-columns: minmax(360px, 46%) minmax(420px, 54%); gap: 26px; overflow: hidden; }
+.ui-inspiration-page .lightbox-canvas { min-width: 0; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: auto; }
+.ui-inspiration-page .annotated-preview { max-width: min(1440px, 100%); max-height: 100%; position: relative; display: inline-flex; border-radius: 8px; box-shadow: 0 28px 80px rgba(0,0,0,.4); }
+.ui-inspiration-page .annotated-preview img { max-width: 100%; max-height: calc(100dvh - 170px); display: block; object-fit: contain; border-radius: 8px; }
+.ui-inspiration-page .preview-region { width: 100%; padding: 0; position: absolute; left: 0; right: 0; z-index: 1; display: flex; justify-content: flex-start; border: 2px solid transparent; background: transparent; transition: background .2s, border-color .2s, opacity .2s; }
+.ui-inspiration-page .preview-region span { margin: 12px; padding: 7px 10px; align-self: flex-start; opacity: 0; transform: translateY(-4px); border-radius: 7px; color: #fff; font: 700 11px "Manrope", sans-serif; letter-spacing: .06em; text-transform: uppercase; box-shadow: 0 6px 18px rgba(0,0,0,.22); transition: .2s; }
+.ui-inspiration-page .preview-region:hover span, .ui-inspiration-page .preview-region.active span { opacity: 1; transform: none; }
+.ui-inspiration-page .annotated-preview.has-active-region .preview-region:not(.active) { opacity: .32; background: rgba(5,5,12,.28); }
+.ui-inspiration-page .preview-region--header { border-radius: 8px 8px 0 0; }
+.ui-inspiration-page .preview-region--header:hover, .ui-inspiration-page .preview-region--header.active { border-color: #725cff; background: rgba(84,57,255,.28); }
+.ui-inspiration-page .preview-region--header span { background: #5439ff; }
+.ui-inspiration-page .preview-region--banner:hover, .ui-inspiration-page .preview-region--banner.active { border-color: #f59e0b; background: rgba(245,158,11,.24); }
+.ui-inspiration-page .preview-region--banner span { background: #d97706; }
+.ui-inspiration-page .preview-region--content:hover, .ui-inspiration-page .preview-region--content.active { border-color: #11b981; background: rgba(16,185,129,.2); }
+.ui-inspiration-page .preview-region--content span { background: #079669; }
+.ui-inspiration-page .preview-region--footer { border-radius: 0 0 8px 8px; }
+.ui-inspiration-page .preview-region--footer:hover, .ui-inspiration-page .preview-region--footer.active { border-color: #ec4899; background: rgba(236,72,153,.23); }
+.ui-inspiration-page .preview-region--footer span { background: #db2777; }
+.ui-inspiration-page .region-navigator { min-width: 0; min-height: 0; padding: 20px; overflow-x: hidden; overflow-y: auto; overscroll-behavior: contain; border: 1px solid rgba(255,255,255,.13); border-radius: 14px; background: rgba(255,255,255,.07); scrollbar-width: thin; scrollbar-color: rgba(255,255,255,.28) transparent; }
+.ui-inspiration-page .region-navigator::-webkit-scrollbar { width: 7px; }
+.ui-inspiration-page .region-navigator::-webkit-scrollbar-track { background: transparent; }
+.ui-inspiration-page .region-navigator::-webkit-scrollbar-thumb { border: 2px solid transparent; border-radius: 99px; background: rgba(255,255,255,.28); background-clip: padding-box; }
+.ui-inspiration-page .region-navigator__heading { margin-bottom: 13px; display: flex; flex-direction: column; gap: 5px; }
+.ui-inspiration-page .region-navigator__heading span { color: rgba(255,255,255,.46); font-size: 8px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; }
+.ui-inspiration-page .region-navigator__heading strong { font: 650 16px "Manrope", sans-serif; }
+.ui-inspiration-page .region-navigator__list { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.ui-inspiration-page .region-navigator__list button { min-width: 0; padding: 0; display: block; border: 1px solid rgba(255,255,255,.16); border-left-width: 4px; border-radius: 12px; overflow: hidden; background: rgba(255,255,255,.07); color: rgba(255,255,255,.78); text-align: left; box-shadow: 0 8px 22px rgba(0,0,0,.16); transition: .2s; }
+.ui-inspiration-page .region-navigator__list button.header { border-left-color: #725cff; }
+.ui-inspiration-page .region-navigator__list button.banner { border-left-color: #f59e0b; }
+.ui-inspiration-page .region-navigator__list button.content { border-left-color: #11b981; }
+.ui-inspiration-page .region-navigator__list button.footer { border-left-color: #ec4899; }
+.ui-inspiration-page .region-card__meta { min-height: 42px; padding: 8px 12px; display: flex; align-items: center; gap: 12px; border-bottom: 1px solid rgba(255,255,255,.11); background: rgba(255,255,255,.055); }
+.ui-inspiration-page .region-navigator__list button i { color: rgba(255,255,255,.34); font-size: 8px; font-style: normal; }
+.ui-inspiration-page .region-navigator__list button span { font-size: 13px; font-weight: 700; }
+.ui-inspiration-page .region-thumbnail { width: calc(100% - 20px); min-height: 52px; margin: 10px; display: grid; place-items: center; overflow: hidden; border: 1px solid rgba(255,255,255,.12); border-radius: 8px; background: rgba(5,5,12,.5); }
+.ui-inspiration-page .region-thumbnail.is-empty { height: 142px; border-style: dashed; background: rgba(255,255,255,.025); }
+.ui-inspiration-page .region-thumbnail > span { display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,.32); font-size: 10px; }
+.ui-inspiration-page .region-thumbnail > span i { width: 27px; height: 27px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.18); border-radius: 50%; font-size: 16px; font-style: normal; }
+.ui-inspiration-page .region-thumbnail img { width: 100%; height: auto; display: block; }
+.ui-inspiration-page .region-navigator__list button:hover, .ui-inspiration-page .region-navigator__list button.active { color: #fff; transform: translateX(-3px); }
+.ui-inspiration-page .region-navigator__list button.header:hover, .ui-inspiration-page .region-navigator__list button.header.active { border-color: #725cff; background: rgba(84,57,255,.3); }
+.ui-inspiration-page .region-navigator__list button.banner:hover, .ui-inspiration-page .region-navigator__list button.banner.active { border-color: #f59e0b; background: rgba(245,158,11,.25); }
+.ui-inspiration-page .region-navigator__list button.content:hover, .ui-inspiration-page .region-navigator__list button.content.active { border-color: #11b981; background: rgba(16,185,129,.22); }
+.ui-inspiration-page .region-navigator__list button.footer:hover, .ui-inspiration-page .region-navigator__list button.footer.active { border-color: #ec4899; background: rgba(236,72,153,.24); }
+.ui-inspiration-page .lightbox-hint { padding: 0 20px 20px; color: rgba(255,255,255,.45); font-size: 10px; text-align: center; }
+.ui-inspiration-page .toast { padding: 11px 16px; position: fixed; left: 50%; bottom: 25px; z-index: 100; display: flex; align-items: center; gap: 8px; opacity: 0; transform: translate(-50%, 12px); border-radius: 99px; background: var(--brand); color: white; font-size: 12px; pointer-events: none; box-shadow: 0 10px 24px rgba(84,57,255,.24); transition: .25s; }
+.ui-inspiration-page .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+@media (max-width: 1000px) {
+  .ui-inspiration-page .intro-art { right: -40px; opacity: .4; }
+  .ui-inspiration-page .intro-stats { position: static; margin-top: 55px; }
+  .ui-inspiration-page .intro-stats div:first-child { padding-left: 0; border-left: 0; }
+  .ui-inspiration-page .project-collection.grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ui-inspiration-page .control-panel { padding: 15px 0; align-items: stretch; flex-direction: column; }
+  .ui-inspiration-page .search-box { width: 100%; border-bottom: 1px solid var(--line); }
+  .ui-inspiration-page .search-box input { padding: 14px 0; }
+  .ui-inspiration-page .control-actions { justify-content: flex-end; }
+  .ui-inspiration-page .lightbox-workspace { grid-template-columns: minmax(300px, 43%) minmax(360px, 57%); gap: 16px; }
+}
+
+@media (max-width: 680px) {
+  .ui-inspiration-page .site-header, .ui-inspiration-page .intro, .ui-inspiration-page .library, .ui-inspiration-page footer { width: calc(100% - 32px); }
+  .ui-inspiration-page .site-header { height: 66px; }
+  .ui-inspiration-page .header-count { display: none !important; }
+  .ui-inspiration-page .intro { min-height: 0; padding: 65px 0 48px; }
+  .ui-inspiration-page .intro-art { width: 180px; height: 180px; right: -70px; top: 55px; border-radius: 32px; }
+  .ui-inspiration-page .intro-art::before { border-radius: 24px; }
+  .ui-inspiration-page .code-mark { font-size: 44px; }
+  .ui-inspiration-page .intro h1 { max-width: 100%; font-size: clamp(42px, 13vw, 62px); line-height: 1.03; }
+  .ui-inspiration-page .intro > p { margin-top: 25px; font-size: 14px; }
+  .ui-inspiration-page .intro-stats { margin-top: 40px; justify-content: space-between; }
+  .ui-inspiration-page .intro-stats div { min-width: 0; padding: 0 14px; flex: 1; }
+  .ui-inspiration-page .intro-stats strong { font-size: 19px; }
+  .ui-inspiration-page .library { padding: 48px 0 78px; }
+  .ui-inspiration-page .all-category-groups { gap: 58px; }
+  .ui-inspiration-page .section-heading { margin-bottom: 25px; align-items: center; }
+  .ui-inspiration-page .section-heading p { display: none; }
+  .ui-inspiration-page .control-actions { justify-content: space-between; }
+  .ui-inspiration-page .sort-control { margin-left: auto; }
+  .ui-inspiration-page .project-collection.grid { grid-template-columns: 1fr; row-gap: 38px; }
+  .ui-inspiration-page .project-collection.list .project-card { grid-template-columns: 112px 1fr; gap: 14px; }
+  .ui-inspiration-page .project-collection.list .project-info { align-items: flex-start; }
+  .ui-inspiration-page .project-collection.list .project-copy h3 { font-size: 18px; }
+  .ui-inspiration-page .project-collection.list .mini-palette { display: none; }
+  .ui-inspiration-page .project-collection.list .heart-button { width: 34px; height: 34px; }
+  .ui-inspiration-page .open-label { display: none; }
+  .ui-inspiration-page .detail-drawer { width: 100vw; right: 0; top: 0; bottom: 0; border: 0; border-radius: 0; }
+  .ui-inspiration-page .drawer-body { padding: 24px 20px 32px; overflow-y: auto; }
+  .ui-inspiration-page .drawer-topbar { padding: 0 20px; }
+  .ui-inspiration-page .drawer-title h2 { font-size: 32px; }
+  .ui-inspiration-page .drawer-columns { display: block; }
+  .ui-inspiration-page .drawer-details { margin-top: 24px; }
+  .ui-inspiration-page .full-preview { min-height: 58px; max-height: none; margin-top: 20px; flex: none; }
+  .ui-inspiration-page .color-grid { grid-template-columns: repeat(3, 1fr); gap: 14px 8px; }
+  .ui-inspiration-page .lightbox-bar { min-height: 66px; padding: 10px 16px; }
+  .ui-inspiration-page .lightbox-workspace { padding: 14px 16px; grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; gap: 10px; overflow: auto; }
+  .ui-inspiration-page .region-navigator { padding: 10px; overflow-x: auto; }
+  .ui-inspiration-page .region-navigator__heading { display: none; }
+  .ui-inspiration-page .region-navigator__list { display: flex; flex-direction: row; }
+  .ui-inspiration-page .region-navigator__list button { width: 180px; flex: 0 0 auto; }
+  .ui-inspiration-page .region-thumbnail { height: 120px; aspect-ratio: auto !important; }
+  .ui-inspiration-page footer { padding-bottom: 25px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ui-inspiration-page *, .ui-inspiration-page *::before, .ui-inspiration-page *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; }
+}
