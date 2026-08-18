@@ -14,6 +14,7 @@ import {
 } from "lucide-react";
 import "../styles/ui-inspiration/ui-inspiration.css";
 import { additionalUIProjects } from "../data/additionalUIProjects.js";
+import Footer from "../components/Footer.jsx";
 
 const projectEntries = [
   {
@@ -472,6 +473,7 @@ export default function UIInspiration() {
   };
 
   return (
+    <>
     <div className="ui-inspiration-page app-shell">
       <main id="top">
         <section className="intro">
@@ -596,11 +598,6 @@ export default function UIInspiration() {
         </section>
       </main>
 
-      <footer className="ui-inspiration-footer">
-        <span>CODE LAB © 2026</span>
-        <p>Build better interfaces.</p>
-      </footer>
-
       {createPortal(<div className="ui-inspiration-page ui-detail-layer">
       <div className={`drawer-backdrop ${selectedProject ? "open" : ""}`} onClick={closeDrawer} />
       <aside className={`detail-drawer ${selectedProject ? "open" : ""}`} aria-hidden={!selectedProject} aria-modal="true">
@@ -689,5 +686,9 @@ export default function UIInspiration() {
 
       <div className={`toast ${toast ? "show" : ""}`} role="status"><Check size={16} /> {toast}</div>
     </div>
+    {/* About/Challenges와 같은 공통 사이트 푸터. ui-inspiration-page 밖에 둬서
+        내부의 범용 `footer` 태그 선택자와 스타일이 충돌하지 않게 한다. */}
+    <Footer />
+    </>
   );
 }

@@ -76,6 +76,11 @@
   .mockup__toolbar-item {
     flex: 1 1 auto;
     justify-content: center;
+    /* home-hero.css's base rule sets width:100% for the desktop vertical list;
+       since flex-basis:auto resolves to the width property when width isn't auto,
+       that leftover 100% forces every item onto its own row here, turning this
+       into a tall single column instead of the intended compact wrapped grid. */
+    width: auto;
   }
 
   .mockup__selection-toolbar {

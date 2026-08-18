@@ -164,7 +164,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 90px;
+  aspect-ratio: 2.6 / 1;
+  max-height: 110px;
   flex: none;
   background: var(--color-bg-soft);
   border-radius: 12px;
@@ -789,11 +790,23 @@
     flex-direction: column;
     text-align: center;
   }
-}
 
-@media (max-width: 640px) {
+  /* .challenges-progress__goal/__bar use flex-basis:320px/260px to reserve
+     horizontal space in the row layout above; once the container switches to
+     column here, those same values become minimum heights instead, stretching
+     each section far taller than its content and leaving large empty gaps. */
+  .challenges-progress__goal,
+  .challenges-progress__bar {
+    flex-basis: auto;
+    width: 100%;
+  }
+
   .challenges-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .challenge-modal__panel {
+    padding: 28px 24px 24px;
   }
 
   .challenge-modal__body {
@@ -802,5 +815,55 @@
 
   .challenge-modal__editors {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .challenges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .challenge-card__preview {
+    margin: 14px 0;
+  }
+
+  .challenge-modal {
+    padding: 12px;
+  }
+
+  .challenge-modal__panel {
+    padding: 24px 18px 20px;
+    border-radius: 18px;
+  }
+
+  .challenge-modal__head h2 {
+    font-size: 18px;
+  }
+
+  .challenge-modal__requirements {
+    gap: 8px 14px;
+    padding: 12px 14px;
+  }
+
+  .challenge-modal__actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .challenges-btn {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .challenges-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .challenges-hero__cta,
+  .challenges-progress__cta {
+    width: 100%;
+    justify-content: center;
   }
 }

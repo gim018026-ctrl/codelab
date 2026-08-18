@@ -40,7 +40,7 @@ export default function Footer() {
         <div className="about-footer__col">
           <span>배우기</span>
           <Link to="/guide">Guide</Link>
-          <Link to="/builder">Builder</Link>
+          <Link to="/builder" target="_blank" rel="noopener noreferrer">Builder</Link>
           <Link to="/challenges">Challenges</Link>
         </div>
         <div className="about-footer__col">

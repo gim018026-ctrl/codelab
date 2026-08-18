@@ -147,6 +147,21 @@
 }
 
 @media (max-width: 480px) {
+  .about-footer__form {
+    width: min(240px, 100%);
+  }
+
+  .about-footer__form input {
+    width: min(180px, 100%);
+    flex: none;
+  }
+
+  .about-footer__icon {
+    width: 160px;
+    height: 120px;
+    font-size: 80px;
+  }
+
   .about-footer__mark {
     width: min(300px, 100%);
     height: 150px;
@@ -302,4 +317,105 @@
 
 .about-footer__legal a:hover {
   color: var(--color-ink-soft);
+}
+
+/* ============ RESPONSIVE (Footer is shared by About and Challenges, so its
+   breakpoints live here rather than in about/media.css, which only About
+   imports) ============ */
+
+@media (max-width: 1200px) {
+  .about-footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px 24px;
+  }
+
+  .about-footer__newsletter {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+
+  .about-footer__form {
+    width: min(320px, 100%);
+    margin: 0 auto;
+  }
+
+  .about-footer__form input {
+    width: min(260px, 100%);
+    flex: none;
+  }
+}
+
+@media (max-width: 1024px) {
+  /* The icon shrinks here, but .about-footer__mark (its positioning box for
+     the HTML/CSS/JS tags) stayed at the full 420x230 desktop size all the way
+     down to the 480px breakpoint, so the tags drifted away from the now-smaller
+     icon instead of staying visually anchored to it. Scale the box down to match. */
+  .about-footer__mark {
+    width: 300px;
+    height: 180px;
+  }
+
+  .about-footer__icon {
+    width: 220px;
+    height: 160px;
+    font-size: 110px;
+  }
+
+  .about-footer__tag--html {
+    top: 22px;
+    left: 10px;
+  }
+
+  .about-footer__tag--css {
+    top: 14px;
+    right: 10px;
+  }
+
+  .about-footer__tag--js {
+    right: 22px;
+    bottom: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-footer {
+    padding: 56px 0 24px;
+  }
+
+  .about-footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px 24px;
+  }
+
+  .about-footer__newsletter {
+    grid-column: 1 / -1;
+  }
+
+  .about-footer__form {
+    width: min(280px, 100%);
+  }
+
+  .about-footer__form input {
+    width: min(220px, 100%);
+    flex: none;
+  }
+
+  .about-footer__bottom {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 360px) {
+  .about-footer__form {
+    width: 100%;
+  }
+
+  .about-footer__form input {
+    width: auto;
+    flex: 1;
+    min-width: 0;
+  }
 }

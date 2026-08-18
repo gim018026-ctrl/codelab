@@ -91,7 +91,7 @@ export default function Header() {
         <NavLink to="/" end onClick={() => setIsNavOpen(false)}>
           Home
         </NavLink>
-        <NavLink to="/builder" onClick={() => setIsNavOpen(false)}>
+        <NavLink to="/builder" target="_blank" rel="noopener noreferrer" onClick={() => setIsNavOpen(false)}>
           Builder
         </NavLink>
         <NavLink to="/guide" onClick={() => setIsNavOpen(false)}>

@@ -32,7 +32,7 @@ export const cardData = {
       '검색으로 원하는 속성을 바로 찾을 수 있어요.',
     ],
     ctaText: '치트시트 보러가기',
-    ctaHref: '/',
+    ctaHref: '/guide',
   },
   // 디자인 요구사항을 코드로 구현하는 챌린지 기능 소개
   challenges: {
@@ -61,7 +61,7 @@ export const cardData = {
       '실시간 코드 에디터에서 작성하고 바로 결과를 확인해요.',
     ],
     ctaText: '미션 도전하러 가기',
-    ctaHref: '/',
+    ctaHref: '/challenges',
   },
   // CODE LAB의 목적과 방향성을 설명하는 소개 페이지 카드
   'about-website': {
@@ -91,6 +91,6 @@ export const cardData = {
       '마음에 드는 레퍼런스는 저장해서 다시 볼 수 있어요.',
     ],
     ctaText: '레퍼런스 둘러보기',
-    ctaHref: '/',
+    ctaHref: '/ui-inspiration',
   },
 };

@@ -23,7 +23,7 @@ body.drawer-open { overflow: hidden; }
 .ui-inspiration-page button { color: inherit; }
 .ui-inspiration-page button:focus-visible, .ui-inspiration-page input:focus-visible, .ui-inspiration-page select:focus-visible, .ui-inspiration-page a:focus-visible { outline: 2px solid #6945ff; outline-offset: 3px; }
 
-.ui-inspiration-page .app-shell { min-height: 100vh; overflow: hidden; }
+.ui-inspiration-page.app-shell { min-height: 100vh; overflow: hidden; }
 .ui-inspiration-page .site-header {
   width: min(1480px, calc(100% - 64px));
   height: 78px;
