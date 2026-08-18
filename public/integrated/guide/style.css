@@ -911,6 +911,13 @@
     .main-nav { display: none; }
     .search-bar { justify-content: stretch; }
   }
+  @media (max-width: 600px) {
+    /* 배너의 HTML/CSS 네모 그래픽만 숨기고, 배경색은 대체값으로 유지 */
+    .hero {
+      background-image: none;
+      background-color: #f1edff;
+    }
+  }
 
 /* =========================================================
    반응형 미디어 쿼리 보강
