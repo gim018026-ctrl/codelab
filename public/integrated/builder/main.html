@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CODE LAB — Visual Builder</title>
+    <link rel="icon" type="image/png" href="/icon.png" />
     <link rel="stylesheet" href="style.css?v=123" />
   </head>
   <body>
@@ -308,6 +309,14 @@
     <!-- 짧은 작업 결과와 버튼 설명을 알리는 공용 UI -->
     <div class="toast" id="toast"></div>
     <div class="ui-tooltip" id="uiTooltip" role="tooltip"></div>
-    <script src="app.js?v=127" defer></script>
+    <!-- app.js를 8개 파일로 나눠 js/ 폴더에 두고, 기존과 같은 순서로 불러옵니다. -->
+    <script src="js/01-utils.js?v=1" defer></script>
+    <script src="js/02-state.js?v=1" defer></script>
+    <script src="js/03-catalog.js?v=1" defer></script>
+    <script src="js/04-canvas.js?v=1" defer></script>
+    <script src="js/05-inspector.js?v=1" defer></script>
+    <script src="js/06-persistence.js?v=1" defer></script>
+    <script src="js/07-preview.js?v=1" defer></script>
+    <script src="js/08-dialogs.js?v=1" defer></script>
   </body>
 </html>

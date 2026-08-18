@@ -1356,6 +1356,8 @@ body.dark-mode .group-toggle .member-only-badge {
   background: var(--violet);
   border-color: var(--violet);
   color: #fff;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
 .view-controls {
@@ -3903,6 +3905,19 @@ pre {
 
   .canvas-shell {
     min-width: 390px;
+  }
+
+  /* With the inspector panel open, the canvas column can drop to ~260-290px,
+     too narrow for the toolbar's W/H inputs + apply button to sit on one row
+     and still leaving no room for the "Space to pan" hint, which would
+     otherwise wrap onto three cramped lines over the canvas. */
+  .workspace.inspector-open .canvas-dimensions {
+    flex-wrap: wrap;
+    row-gap: 6px;
+  }
+
+  .workspace.inspector-open .canvas-hint {
+    display: none;
   }
 }
 
